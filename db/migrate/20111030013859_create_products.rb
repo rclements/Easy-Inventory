@@ -3,6 +3,8 @@ class CreateProducts < ActiveRecord::Migration
     create_table :products do |t|
       t.string :name
       t.integer :quantity
+
+      t.timestamps
     end
   end
 

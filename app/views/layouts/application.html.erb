@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>EasyInventory</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= csrf_meta_tags %>
+  <title>Easy Inventory</title>
+  <%= stylesheet_link_tag 'web_app_theme' %>
+  <%= csrf_meta_tag %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div id="container">
+    <div id="header">
+      <h1><a href="/">Easy-Inventory</a></h1>
+      <div id="user-navigation">
+        <ul class="wat-cf">
+          <li><a href="/logout" class="logout"><%= t("web-app-theme.logout", :default => "Logout") %></a></li>
+        </ul>
+      </div>
+      <div id="main-navigation">
+        <ul class="wat-cf"></ul>
+      </div>
+    </div>    
+    <div id="wrapper" class="wat-cf">
+      <div class="flash">
+        <% flash.each do |type, message| -%>
+          <div class="message <%= type %>">
+            <p><%= message %></p>
+          </div>
+        <% end -%>
+      </div>
+      <div id="main">
+        <%= yield %>
+        <div id="footer">
+          <div class="block">
+            <p>Copyright &copy; <%= Time.now.year %> Easy-Inventory.</p>
+          </div>      
+        </div>
+      </div>
+      <div id="sidebar">
+        <%= yield :sidebar %>
+      </div>
+    </div>    
+  </div>
 </body>
 </html>

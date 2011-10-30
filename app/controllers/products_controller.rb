@@ -33,5 +33,13 @@ class ProductsController < ApplicationController
       render :edit
     end
   end
-
+  
+  def destroy
+    @product = Product.find(params[:id])
+    if @product.destroy
+      redirect_to products_list
+    else
+      render :show
+    end
+  end
 end
