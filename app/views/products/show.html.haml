@@ -1,0 +1,11 @@
+%h2= @product.name
+
+Product Name:
+= @product.name
+%br
+Product Quantity:
+= @product.quantity
+%br
+= link_to "Update Product", edit_product_path(@product)
+%br
+= link_to "Products List", products_path
